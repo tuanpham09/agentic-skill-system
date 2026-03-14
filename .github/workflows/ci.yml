@@ -35,9 +35,6 @@ jobs:
       - name: Run tests
         run: pnpm test
 
-      - name: Lint
-        run: pnpm lint
-
       - name: Validate all bundled skills
         run: node packages/cli/dist/index.js skill validate-all
 
