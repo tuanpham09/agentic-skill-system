@@ -9,6 +9,13 @@ export default defineConfig({
   target: 'node20',
   bundle: true,
   splitting: false,
+  noExternal: [
+    /@agentic-skill\/.*/,
+    'commander',
+    'chalk',
+    '@inquirer/prompts',
+    'gray-matter',
+    'zod',
+  ],
   external: ['fs', 'path', 'os', 'crypto', 'child_process', 'stream', 'url', 'util'],
-  noExternal: [/@agentic-skill\/.*/],
 });
