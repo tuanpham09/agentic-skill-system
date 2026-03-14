@@ -28,7 +28,19 @@ export interface SpecMeta { title: string; status: SpecStatus; proposedBy: strin
 // ─── NEW: Project types ───────────────────────────────────────────────────────
 export type ProjectType = 'new' | 'existing';
 export type DetectedLanguage = 'typescript' | 'javascript' | 'python' | 'go' | 'rust' | 'java' | 'php' | 'ruby' | 'csharp' | 'swift' | 'kotlin' | 'dart' | 'unknown';
-export interface ProjectConfig { name: string; type: ProjectType; language: DetectedLanguage; framework?: string | undefined; description?: string | undefined; docsPath: string; openspecPath: string; boardPath: string; phasesPath: string; initializedAt: string; ideGuide?: string; }
+export interface ProjectConfig {
+  name: string;
+  type: ProjectType;
+  language: DetectedLanguage;
+  framework?: string | undefined;
+  description?: string | undefined;
+  docsPath: string;
+  openspecPath: string;
+  boardPath: string;
+  phasesPath: string;
+  initializedAt: string;
+  ideGuide?: string | undefined;
+}
 export interface LanguageProfile { language: DetectedLanguage; framework?: string | undefined; packageManager: string; testCommand: string; buildCommand: string; lintCommand: string; runCommand: string; installCommand: string; testFilePattern: string; configFiles: string[]; }
 export interface TechStackItem { name: string; version?: string | undefined; category: 'language' | 'framework' | 'database' | 'cache' | 'queue' | 'auth' | 'testing' | 'build' | 'other'; }
 export interface ProjectScanResult { language: DetectedLanguage; framework?: string | undefined; profile: LanguageProfile; existingFeatures: string[]; techStack: TechStackItem[]; packageName?: string  | undefined; description?: string  | undefined; hasTests : boolean; hasDocker: boolean; hasCi: boolean; estimatedSize: 'small' | 'medium' | 'large'; }
