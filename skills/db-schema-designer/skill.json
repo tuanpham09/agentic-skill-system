@@ -1,0 +1,12 @@
+{
+  "name": "db-schema-designer",
+  "version": "1.0.0",
+  "description": "Design database schemas with ERD diagrams, migration files, and ORM models — PostgreSQL, MySQL, SQLite",
+  "author": "agentic-skill",
+  "license": "MIT",
+  "keywords": ["database", "schema", "erd", "migration", "orm"],
+  "agentTypes": ["all"],
+  "minCliVersion": "1.0.0",
+  "dependencies": {},
+  "triggers": ["design schema", "database schema", "erd", "create table", "db design"]
+}

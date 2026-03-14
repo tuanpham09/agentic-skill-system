@@ -1,0 +1,12 @@
+{
+  "name": "doc-reviewer",
+  "version": "1.0.0",
+  "description": "Review documentation bundle for consistency, completeness, and agent-readiness before coding begins",
+  "author": "agentic-skill",
+  "license": "MIT",
+  "keywords": ["docs", "review", "validation", "consistency", "completeness"],
+  "agentTypes": ["all"],
+  "minCliVersion": "1.0.0",
+  "dependencies": {},
+  "triggers": ["review docs", "validate docs", "check documentation", "docs ready", "kiểm tra tài liệu"]
+}

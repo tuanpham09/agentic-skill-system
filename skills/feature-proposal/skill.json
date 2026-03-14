@@ -1,0 +1,12 @@
+{
+  "name": "feature-proposal",
+  "version": "1.0.0",
+  "description": "Create and manage feature proposals in specs/changes/ — structured workflow from idea to implementation",
+  "author": "agentic-skill",
+  "license": "MIT",
+  "keywords": ["feature", "proposal", "spec", "planning", "rfc"],
+  "agentTypes": ["all"],
+  "minCliVersion": "1.0.0",
+  "dependencies": {"spec-writer": "^1.0.0"},
+  "triggers": ["new feature", "feature proposal", "propose feature", "feature request", "rfc"]
+}

@@ -1,0 +1,12 @@
+{
+  "name": "spec-writer",
+  "version": "1.0.0",
+  "description": "Write structured spec files for features and modules — the source of truth before any code is written",
+  "author": "agentic-skill",
+  "license": "MIT",
+  "keywords": ["spec", "specification", "planning", "design", "requirements"],
+  "agentTypes": ["all"],
+  "minCliVersion": "1.0.0",
+  "dependencies": {},
+  "triggers": ["write spec", "create spec", "spec for", "specification", "design doc"]
+}

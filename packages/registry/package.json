@@ -1,0 +1,32 @@
+{
+  "name": "@agentic-skill/registry",
+  "version": "1.0.0",
+  "description": "Skill registry server for Agentic Skill System",
+  "type": "module",
+  "main": "./dist/app.js",
+  "scripts": {
+    "build": "tsup src/app.ts --format esm --dts --clean",
+    "dev": "tsx watch src/app.ts",
+    "start": "node dist/app.js",
+    "typecheck": "tsc --noEmit",
+    "clean": "rm -rf dist",
+    "db:migrate": "tsx src/db/migrate.ts",
+    "db:seed": "tsx src/db/seed.ts"
+  },
+  "dependencies": {
+    "better-sqlite3": "^9.4.3",
+    "drizzle-orm": "^0.30.8",
+    "express": "^4.18.3",
+    "multer": "^1.4.5-lts.1",
+    "zod": "^3.22.4"
+  },
+  "devDependencies": {
+    "@types/better-sqlite3": "^7.6.9",
+    "@types/express": "^4.17.21",
+    "@types/multer": "^1.4.11",
+    "drizzle-kit": "^0.20.14",
+    "tsup": "^8.0.2",
+    "tsx": "^4.7.1",
+    "typescript": "^5.4.2"
+  }
+}

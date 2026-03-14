@@ -1,0 +1,12 @@
+{
+  "name": "notes-manager",
+  "version": "1.0.0",
+  "description": "Append architecture decisions, bug findings, and lessons to NOTES.md — the permanent project memory log",
+  "author": "agentic-skill",
+  "license": "MIT",
+  "keywords": ["notes", "decisions", "memory", "architecture", "log"],
+  "agentTypes": ["all"],
+  "minCliVersion": "1.0.0",
+  "dependencies": {},
+  "triggers": ["save decision", "log note", "architecture decision", "add note", "remember this"]
+}

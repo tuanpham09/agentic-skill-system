@@ -1,0 +1,12 @@
+{
+  "name": "agentic-project-docs",
+  "version": "1.0.0",
+  "description": "Generate a complete agentic-ready documentation bundle for any new software project — architecture, sprints, schema, API reference",
+  "author": "agentic-skill",
+  "license": "MIT",
+  "keywords": ["docs", "architecture", "sprint", "project", "documentation", "boilerplate"],
+  "agentTypes": ["all"],
+  "minCliVersion": "1.0.0",
+  "dependencies": {},
+  "triggers": ["start project", "generate docs", "project documentation", "create architecture docs", "new project"]
+}

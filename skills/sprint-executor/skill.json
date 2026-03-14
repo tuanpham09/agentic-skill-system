@@ -1,0 +1,12 @@
+{
+  "name": "sprint-executor",
+  "version": "1.0.0",
+  "description": "Execute sprint tasks step by step: read task spec, implement, test, update session state",
+  "author": "agentic-skill",
+  "license": "MIT",
+  "keywords": ["sprint", "execution", "tasks", "implementation", "workflow"],
+  "agentTypes": ["all"],
+  "minCliVersion": "1.0.0",
+  "dependencies": {"session-state-manager": "^1.0.0"},
+  "triggers": ["execute sprint", "start task", "implement task", "next task", "sprint executor"]
+}

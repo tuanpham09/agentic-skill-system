@@ -1,0 +1,12 @@
+{
+  "name": "context-builder",
+  "version": "1.0.0",
+  "description": "Build and refresh CONTEXT.md — the project snapshot file that gives new sessions immediate orientation",
+  "author": "agentic-skill",
+  "license": "MIT",
+  "keywords": ["context", "snapshot", "orientation", "onboarding"],
+  "agentTypes": ["all"],
+  "minCliVersion": "1.0.0",
+  "dependencies": {"session-state-manager": "^1.0.0"},
+  "triggers": ["build context", "refresh context", "update context", "project snapshot"]
+}

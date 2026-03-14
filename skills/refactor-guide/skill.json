@@ -1,0 +1,12 @@
+{
+  "name": "refactor-guide",
+  "version": "1.0.0",
+  "description": "Guide safe, incremental refactoring sessions — identifies what to refactor, how to do it safely, in what order",
+  "author": "agentic-skill",
+  "license": "MIT",
+  "keywords": ["refactor", "clean code", "technical debt", "restructure", "improve"],
+  "agentTypes": ["all"],
+  "minCliVersion": "1.0.0",
+  "dependencies": {"code-reviewer": "^1.0.0"},
+  "triggers": ["refactor", "clean up code", "technical debt", "restructure", "improve code"]
+}

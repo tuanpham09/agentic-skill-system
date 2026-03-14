@@ -1,0 +1,12 @@
+{
+  "name": "session-state-manager",
+  "version": "1.0.0",
+  "description": "Read and write SESSION_STATE.md to track AI agent progress across sessions",
+  "author": "agentic-skill",
+  "license": "MIT",
+  "keywords": ["session", "state", "memory", "continuity", "resume"],
+  "agentTypes": ["all"],
+  "minCliVersion": "1.0.0",
+  "dependencies": {},
+  "triggers": ["check session", "resume work", "update task", "what was I doing", "session state"]
+}

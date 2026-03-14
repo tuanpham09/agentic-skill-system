@@ -1,0 +1,12 @@
+{
+  "name": "perf-checker",
+  "version": "1.0.0",
+  "description": "Identify performance bottlenecks: N+1 queries, missing indexes, blocking I/O, memory leaks",
+  "author": "agentic-skill",
+  "license": "MIT",
+  "keywords": ["performance", "optimization", "bottleneck", "n+1", "profiling"],
+  "agentTypes": ["all"],
+  "minCliVersion": "1.0.0",
+  "dependencies": {},
+  "triggers": ["performance check", "slow query", "optimization", "bottleneck", "n+1 problem"]
+}

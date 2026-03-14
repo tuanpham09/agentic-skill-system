@@ -1,0 +1,12 @@
+{
+  "name": "deploy-checklist",
+  "version": "1.0.0",
+  "description": "Pre-deploy verification checklist — tests passing, env vars set, migrations run, rollback plan ready",
+  "author": "agentic-skill",
+  "license": "MIT",
+  "keywords": ["deploy", "deployment", "checklist", "production", "release"],
+  "agentTypes": ["all"],
+  "minCliVersion": "1.0.0",
+  "dependencies": {},
+  "triggers": ["deploy", "pre-deploy", "deployment checklist", "ready to deploy", "release"]
+}

@@ -1,0 +1,39 @@
+{
+  "name": "agentic-skill",
+  "version": "1.0.0",
+  "description": "AI coding agent framework — skills, memory, kanban, and IDE integration for any language",
+  "type": "module",
+  "bin": {
+    "agentic-skill": "./dist/index.js"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": ["dist", "skills", "README.md"],
+  "scripts": {
+    "build": "tsup src/index.ts --format esm --dts --clean",
+    "dev": "tsup src/index.ts --format esm --dts --watch",
+    "typecheck": "tsc --noEmit",
+    "clean": "rm -rf dist"
+  },
+  "keywords": ["ai", "agent", "coding", "skill", "opencode", "cursor", "windsurf", "claude", "copilot", "kanban", "memory"],
+  "author": "agentic-skill",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/agentic-skill/agentic-skill-system"
+  },
+  "dependencies": {
+    "@agentic-skill/adapters": "workspace:*",
+    "@agentic-skill/core": "workspace:*",
+    "@inquirer/prompts": "^5.1.0",
+    "chalk": "^5.3.0",
+    "commander": "^12.0.2"
+  },
+  "devDependencies": {
+    "tsup": "^8.0.2",
+    "typescript": "^5.4.2"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}

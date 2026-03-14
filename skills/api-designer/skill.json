@@ -1,0 +1,12 @@
+{
+  "name": "api-designer",
+  "version": "1.0.0",
+  "description": "Design REST API endpoints with OpenAPI-compatible specs — resource naming, HTTP codes, request/response schemas",
+  "author": "agentic-skill",
+  "license": "MIT",
+  "keywords": ["api", "rest", "design", "openapi", "endpoints"],
+  "agentTypes": ["all"],
+  "minCliVersion": "1.0.0",
+  "dependencies": {},
+  "triggers": ["design api", "api endpoint", "rest api", "openapi", "api reference"]
+}

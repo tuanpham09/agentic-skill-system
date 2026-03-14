@@ -1,0 +1,12 @@
+{
+  "name": "code-reviewer",
+  "version": "1.0.0",
+  "description": "Review code against project patterns, conventions, and quality standards — catches anti-patterns before they merge",
+  "author": "agentic-skill",
+  "license": "MIT",
+  "keywords": ["code review", "quality", "patterns", "conventions", "anti-patterns"],
+  "agentTypes": ["all"],
+  "minCliVersion": "1.0.0",
+  "dependencies": {},
+  "triggers": ["code review", "review code", "check code", "code quality", "review this"]
+}

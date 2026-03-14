@@ -1,0 +1,12 @@
+{
+  "name": "security-reviewer",
+  "version": "1.0.0",
+  "description": "Check code for common security vulnerabilities: injection, auth bypass, secrets exposure, OWASP Top 10",
+  "author": "agentic-skill",
+  "license": "MIT",
+  "keywords": ["security", "owasp", "vulnerabilities", "audit", "review"],
+  "agentTypes": ["all"],
+  "minCliVersion": "1.0.0",
+  "dependencies": {},
+  "triggers": ["security review", "check security", "security audit", "vulnerability", "owasp"]
+}

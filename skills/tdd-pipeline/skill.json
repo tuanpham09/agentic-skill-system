@@ -1,0 +1,12 @@
+{
+  "name": "tdd-pipeline",
+  "version": "1.0.0",
+  "description": "Red-green-refactor TDD pipeline for AI agents — always write the failing test before implementation",
+  "author": "agentic-skill",
+  "license": "MIT",
+  "keywords": ["tdd", "testing", "pipeline", "red-green-refactor", "vitest", "jest"],
+  "agentTypes": ["all"],
+  "minCliVersion": "1.0.0",
+  "dependencies": {},
+  "triggers": ["write tests", "tdd", "test first", "test-driven", "red green refactor", "failing test"]
+}

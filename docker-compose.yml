@@ -1,0 +1,31 @@
+version: '3.9'
+
+services:
+  registry:
+    build:
+      context: .
+      dockerfile: packages/registry/Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=development
+      - DATABASE_URL=file:/data/registry.db
+      - STORAGE_TYPE=local
+      - STORAGE_PATH=/data/bundles
+      - BASE_URL=http://localhost:3000
+      - JWT_SECRET=dev-secret-change-in-production
+      - ALLOWED_ORIGINS=*
+      - PORT=3000
+    volumes:
+      - registry-data:/data
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost:3000/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+      start_period: 15s
+
+volumes:
+  registry-data:
+    driver: local

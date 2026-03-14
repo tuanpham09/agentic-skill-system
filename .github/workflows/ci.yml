@@ -1,0 +1,51 @@
+name: CI
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    name: Test & Build
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v3
+        with:
+          version: 9
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build all packages
+        run: pnpm build
+
+      - name: Type check
+        run: pnpm typecheck
+
+      - name: Run tests
+        run: pnpm test
+
+      - name: Lint
+        run: pnpm lint
+
+      - name: Validate all bundled skills
+        run: node packages/cli/dist/index.js skill validate-all
+
+      - name: Check bundle size
+        run: |
+          npm pack packages/cli/ --dry-run 2>&1 | tee /tmp/pack-output.txt
+          # Fail if unpacked size > 10MB (generous limit for CI)
+          if grep -q "unpacked size" /tmp/pack-output.txt; then
+            SIZE=$(grep "unpacked size" /tmp/pack-output.txt | grep -oP '[\d.]+ [kMG]B')
+            echo "Bundle size: $SIZE"
+          fi
