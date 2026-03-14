@@ -23,14 +23,23 @@ export default defineConfig({
   clean: true,
   platform: 'node',
   target: 'node20',
-  banner: { js: '#!/usr/bin/env node\n' },
   external: ['fs', 'path', 'os', 'crypto', 'child_process', 'stream', 'url', 'util'],
   noExternal: [/@agentic-skill\/.*/],
-  async onSuccess() {
-    // Copy bundled skills into dist so they're available after npm install
+  esbuildOptions(options) {
+    options.banner = {
+      js: '#!/usr/bin/env node',
+    };
+  },
+  onSuccess: async () => {
+    const { cpSync, existsSync } = await import('fs');
+    const { join, dirname } = await import('path');
+    const { fileURLToPath } = await import('url');
+    const __dirname = dirname(fileURLToPath(import.meta.url));
     const skillsSrc = join(__dirname, '..', '..', 'skills');
-    const skillsDest = join(__dirname, 'dist', '..', 'skills');
-    copyDir(skillsSrc, skillsDest);
-    process.stdout.write(`✓ Copied skills/ → package\n`);
+    const skillsDest = join(__dirname, 'skills');
+    if (existsSync(skillsSrc)) {
+      cpSync(skillsSrc, skillsDest, { recursive: true });
+      process.stdout.write('✓ Skills copied\n');
+    }
   },
 });
