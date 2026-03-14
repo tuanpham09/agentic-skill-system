@@ -190,7 +190,7 @@ export async function initCommand(projectRoot: string, options: InitOptions): Pr
     project: {
       name: projectName,
       type: projectType,
-      language: langAdapter.detect(projectRoot),
+language: langAdapter.detect(projectRoot) as import('@agentic-skill/core').DetectedLanguage,
       docsPath: '.agentic/docs',
       openspecPath: '.agentic/openspec',
       boardPath: '.agentic/board.json',
