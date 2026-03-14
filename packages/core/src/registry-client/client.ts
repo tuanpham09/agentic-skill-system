@@ -1,5 +1,4 @@
 import { createWriteStream, mkdirSync, existsSync } from 'fs';
-import { join } from 'path';
 import { pipeline } from 'stream/promises';
 import type {
   RegistrySearchResult,
@@ -45,7 +44,6 @@ export class RegistryClient {
     // Stream to disk
     const zipPath = `${destPath}.zip`;
     const writer = createWriteStream(zipPath);
-    // @ts-expect-error ReadableStream type mismatch between fetch and Node
     await pipeline(res.body, writer);
     return;
   }
