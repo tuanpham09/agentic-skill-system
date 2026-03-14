@@ -60,6 +60,23 @@ export async function sessionStartCommand(
   const bundledDir = getBundledSkillsDir();
   const installedNames = Object.keys(ctx.config.skills);
   const skills = resolver.listInstalled(ctx.projectRoot, installedNames, bundledDir);
+// 7b. Load kanban context
+  const kanban = new KanbanManager(ctx.projectRoot);
+  const board = kanban.readBoard();
+  const phaseProgress = kanban.getPhaseProgress();
+  const inProgress = kanban.getCurrentTasks();
+  const summary = kanban.getSummary();
+
+  // Load AGENT_QUICK_REF.md if it exists
+  const agentRefPath = join(ctx.projectRoot, '.agentic', 'AGENT_QUICK_REF.md');
+  const agentRef = existsSync(agentRefPath) ? readFileSync(agentRefPath, 'utf-8') : '';
+
+  // Append kanban + phase info to session state string for IDE injection
+  const kanbanItems = inProgress.map((t) => `- [${t.id}] ${t.title}`).join('\n');
+  const kanbanBlock = board
+    ? `\n## Kanban — Current Phase: ${board.currentPhase}\n- In progress: ${summary['in-progress']} tasks  Todo: ${summary.todo}  Phase: ${phaseProgress.completed}/${phaseProgress.total} (${phaseProgress.percent}%)\n${kanbanItems}`
+    : '';
+  const enrichedSessionState = formatSessionState(state) + kanbanBlock;
 
   // 6. Build agent context
   const agentContext: AgentContext = {
@@ -85,24 +102,7 @@ export async function sessionStartCommand(
   await adapter.injectContext(agentContext, ctx.projectRoot);
   logger.success(`Injected context → ${adapter.contextFilePath}`);
 
-  // 7b. Load kanban context
-  const kanban = new KanbanManager(ctx.projectRoot);
-  const board = kanban.readBoard();
-  const phaseProgress = kanban.getPhaseProgress();
-  const inProgress = kanban.getCurrentTasks();
-  const summary = kanban.getSummary();
-
-  // Load AGENT_QUICK_REF.md if it exists
-  const agentRefPath = join(ctx.projectRoot, '.agentic', 'AGENT_QUICK_REF.md');
-  const agentRef = existsSync(agentRefPath) ? readFileSync(agentRefPath, 'utf-8') : '';
-
-  // Append kanban + phase info to session state string for IDE injection
-  const kanbanItems = inProgress.map((t) => `- [${t.id}] ${t.title}`).join('\n');
-  const kanbanBlock = board
-    ? `\n## Kanban — Current Phase: ${board.currentPhase}\n- In progress: ${summary['in-progress']} tasks  Todo: ${summary.todo}  Phase: ${phaseProgress.completed}/${phaseProgress.total} (${phaseProgress.percent}%)\n${kanbanItems}`
-    : '';
-  const enrichedSessionState = formatSessionState(state) + kanbanBlock;
-
+  
   // 8. Print session summary
   logger.newline();
   logger.section('Session Ready');

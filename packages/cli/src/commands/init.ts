@@ -246,7 +246,7 @@ function detectIde(projectRoot: string): string | null {
   return null;
 }
 
-async function createRulesFile(projectRoot: string, ide: string): void {
+async function createRulesFile(projectRoot: string, ide: string): Promise<void> {
   const { mkdirSync } = await import('fs');
   const rulesContent = `# Project Rules
 

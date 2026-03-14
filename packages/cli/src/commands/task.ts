@@ -11,14 +11,14 @@ export function taskAddCommand(title: string, opts: { phase?: string; priority?:
     process.exit(1);
   }
 
-  const task = kanban.addTask({
-    title,
-    status: 'todo',
-    phase: opts.phase ?? board.currentPhase,
-    priority: (opts.priority as 'P0' | 'P1' | 'P2' | 'P3') ?? 'P1',
-    tags: [],
-    feature: opts.feature,
-  });
+const task = kanban.addTask({
+  title,
+  status: 'todo',
+  phase: opts.phase ?? board.currentPhase,
+  priority: (opts.priority as 'P0' | 'P1' | 'P2' | 'P3') ?? 'P1',
+  tags: [],
+  ...(opts.feature !== undefined && { feature: opts.feature }),
+});
 
   logger.success(`Task added: [${task.id}] ${task.title}`);
   logger.hint(`Move to in-progress: agentic-skill task move ${task.id} in-progress`);

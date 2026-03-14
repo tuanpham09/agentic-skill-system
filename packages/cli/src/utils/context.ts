@@ -1,8 +1,10 @@
 import { existsSync } from 'fs';
-import { join, dirname, fileURLToPath } from 'path';
+import { join, dirname } from 'path';
+import { fileURLToPath } from 'url';
 import { readFileSync } from 'fs';
 import { ConfigLoader } from '@agentic-skill/core';
 import type { AppContext } from '@agentic-skill/core';
+import type { AgenticConfig } from '@agentic-skill/core';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
@@ -41,15 +43,15 @@ export function getCliVersion(): string {
   return '1.0.0';
 }
 
+
 export function buildContext(): AppContext {
   const projectRoot = getProjectRoot();
   const loader = new ConfigLoader();
 
-  let config;
+  let config!: AgenticConfig;
   try {
     config = loader.load(projectRoot);
   } catch (err) {
-    // If config is invalid, return defaults so commands can give a better error
     config = {
       version: '1.0.0',
       skills: {},
