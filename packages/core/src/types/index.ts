@@ -8,7 +8,7 @@ export interface SkillMeta {
 }
 export interface SkillSummary { name: string; version: string; description: string; scope: 'local' | 'global' | 'bundled'; path: string; }
 export type ValidationResult = { valid: true } | { valid: false; errors: string[] };
-export interface InstallOptions { local?: boolean; version?: string; dev?: boolean; }
+export interface InstallOptions { local?: boolean; version?: string | undefined; dev?: boolean | undefined; }
 export interface InstallResult { name: string; version: string; path: string; scope: 'local' | 'global'; }
 export type SessionStatus = 'not-started' | 'in-progress' | 'blocked' | 'review' | 'done' | 'saved';
 export interface SessionState { currentSprint: string; currentTask: string; status: SessionStatus; lastUpdated: string; blockers: string[]; nextSteps: string[]; }
@@ -28,17 +28,17 @@ export interface SpecMeta { title: string; status: SpecStatus; proposedBy: strin
 // ─── NEW: Project types ───────────────────────────────────────────────────────
 export type ProjectType = 'new' | 'existing';
 export type DetectedLanguage = 'typescript' | 'javascript' | 'python' | 'go' | 'rust' | 'java' | 'php' | 'ruby' | 'csharp' | 'swift' | 'kotlin' | 'dart' | 'unknown';
-export interface ProjectConfig { name: string; type: ProjectType; language: DetectedLanguage; framework?: string; description?: string; docsPath: string; openspecPath: string; boardPath: string; phasesPath: string; initializedAt: string; ideGuide?: string; }
-export interface LanguageProfile { language: DetectedLanguage; framework?: string; packageManager: string; testCommand: string; buildCommand: string; lintCommand: string; runCommand: string; installCommand: string; testFilePattern: string; configFiles: string[]; }
-export interface TechStackItem { name: string; version?: string; category: 'language' | 'framework' | 'database' | 'cache' | 'queue' | 'auth' | 'testing' | 'build' | 'other'; }
-export interface ProjectScanResult { language: DetectedLanguage; framework?: string; profile: LanguageProfile; existingFeatures: string[]; techStack: TechStackItem[]; packageName?: string; description?: string; hasTests: boolean; hasDocker: boolean; hasCi: boolean; estimatedSize: 'small' | 'medium' | 'large'; }
+export interface ProjectConfig { name: string; type: ProjectType; language: DetectedLanguage; framework?: string | undefined; description?: string | undefined; docsPath: string; openspecPath: string; boardPath: string; phasesPath: string; initializedAt: string; ideGuide?: string; }
+export interface LanguageProfile { language: DetectedLanguage; framework?: string | undefined; packageManager: string; testCommand: string; buildCommand: string; lintCommand: string; runCommand: string; installCommand: string; testFilePattern: string; configFiles: string[]; }
+export interface TechStackItem { name: string; version?: string | undefined; category: 'language' | 'framework' | 'database' | 'cache' | 'queue' | 'auth' | 'testing' | 'build' | 'other'; }
+export interface ProjectScanResult { language: DetectedLanguage; framework?: string | undefined; profile: LanguageProfile; existingFeatures: string[]; techStack: TechStackItem[]; packageName?: string  | undefined; description?: string  | undefined; hasTests : boolean; hasDocker: boolean; hasCi: boolean; estimatedSize: 'small' | 'medium' | 'large'; }
 
 // ─── NEW: Kanban types ────────────────────────────────────────────────────────
 export type KanbanStatus = 'backlog' | 'todo' | 'in-progress' | 'review' | 'done' | 'blocked';
-export interface KanbanTask { id: string; title: string; description?: string; status: KanbanStatus; phase: string; priority: 'P0' | 'P1' | 'P2' | 'P3'; assignedTo?: string; tags: string[]; createdAt: string; updatedAt: string; completedAt?: string; feature?: string; }
+export interface KanbanTask { id: string; title: string; description?: string | undefined; status: KanbanStatus; phase: string; priority: 'P0' | 'P1' | 'P2' | 'P3'; assignedTo?: string; tags: string[]; createdAt: string; updatedAt: string; completedAt?: string; feature?: string; }
 export interface KanbanBoard { projectName: string; currentPhase: string; lastUpdated: string; tasks: KanbanTask[]; completedPhases: string[]; }
 
 // ─── NEW: Phase types ─────────────────────────────────────────────────────────
 export type PhaseStatus = 'planned' | 'active' | 'completed' | 'skipped';
-export interface Phase { id: string; name: string; status: PhaseStatus; goal: string; startedAt?: string; completedAt?: string; tasks: string[]; acceptanceCriteria: string[]; completionNotes?: string; }
+export interface Phase { id: string; name: string; status: PhaseStatus; goal: string; startedAt?: string; completedAt?: string | undefined; tasks: string[]; acceptanceCriteria: string[]; completionNotes?: string | undefined; }
 export interface PhasePlan { projectName: string; phases: Phase[]; currentPhaseId: string; lastUpdated: string; }

@@ -401,11 +401,11 @@ Small / Medium / Large
     this.generateConventions(opts);
     this.generateArchitecture(opts);
     this.generateFeatures(opts);
-    this.generateSprintDoc({
-      ...opts,
-      phase: opts.phases?.[0] ?? 'Phase 1 — Foundation',
-      tasks: opts.initialTasks,
-    });
+this.generateSprintDoc({
+  ...opts,
+  phase: opts.phases?.[0] ?? 'Phase 1 — Foundation',
+  ...(opts.initialTasks !== undefined && { tasks: opts.initialTasks }),
+});
     this.generateOpenSpecTemplate();
   }
 }

@@ -313,7 +313,8 @@ export class LanguageAdapter {
 
         for (const [name, meta] of Object.entries(KNOWN)) {
           if (name in deps) {
-            stack.push({ name, version: deps[name], category: meta.category });
+            const ver = deps[name];
+stack.push({ name, category: meta.category, ...(ver !== undefined && { version: ver }) });
           }
         }
       } catch { /* ignore */ }
