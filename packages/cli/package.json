@@ -4,9 +4,9 @@
   "description": "AI coding agent framework — skills, memory, kanban, and IDE integration for any language",
   "type": "module",
   "bin": {
-    "agentic-skill": "./dist/index.js"
+    "agentic-skill": "./dist/index.cjs"
   },
-  "main": "./dist/index.js",
+    "main": "./dist/index.cjs",
   "types": "./dist/index.d.ts",
   "files": ["dist", "skills", "README.md"],
   "scripts": {
