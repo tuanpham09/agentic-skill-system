@@ -2,7 +2,6 @@
   "name": "agentic-skill",
   "version": "1.0.0",
   "description": "AI coding agent framework — skills, memory, kanban, and IDE integration for any language",
-  "type": "module",
   "bin": {
     "agentic-skill": "./dist/index.cjs"
   },
