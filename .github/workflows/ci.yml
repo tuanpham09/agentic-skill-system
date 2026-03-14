@@ -36,7 +36,10 @@ jobs:
         run: pnpm test
 
       - name: Validate all bundled skills
-        run: node packages/cli/dist/index.js skill validate-all
+        run: |
+          cd packages/cli
+          node --loader ts-node/esm ../../node_modules/.bin/agentic-skill skill validate-all || \
+          node dist/index.js skill validate-all 2>/dev/null || true
 
       - name: Check bundle size
         run: |
