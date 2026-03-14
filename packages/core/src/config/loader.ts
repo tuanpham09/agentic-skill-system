@@ -1,5 +1,6 @@
 import { existsSync, readFileSync, writeFileSync, mkdirSync } from 'fs';
-import { join, homedir, dirname } from 'path';
+import { join, dirname } from 'path';
+import { homedir } from 'os';
 import { agenticConfigSchema, type AgenticConfig } from './schema.js';
 
 export const GLOBAL_SKILLS_DIR = join(homedir(), '.agentic-skills');
