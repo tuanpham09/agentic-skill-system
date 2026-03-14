@@ -3,8 +3,8 @@ import { db } from '../db/connection.js';
 import { skills, users } from '../db/schema.js';
 import { eq, like, or } from 'drizzle-orm';
 
-export const searchRouter = Router();
-
+import type { Router as ExpressRouter } from 'express';
+export const searchRouter: ExpressRouter = Router();
 // GET /api/v1/search?q=tdd&limit=10
 searchRouter.get('/', (req, res) => {
   const query = String(req.query['q'] ?? '').trim();

@@ -9,7 +9,8 @@ import { skills, skillVersions, users } from '../db/schema.js';
 import { eq, and } from 'drizzle-orm';
 import { authMiddleware, type AuthedRequest } from '../middleware/auth.js';
 
-export const skillsRouter = Router();
+import type { Router as ExpressRouter } from 'express';
+export const skillsRouter: ExpressRouter = Router();
 
 const STORAGE_PATH = process.env['STORAGE_PATH'] ?? './bundles';
 

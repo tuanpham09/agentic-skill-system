@@ -6,7 +6,8 @@ import { users, tokens } from '../db/schema.js';
 import { eq } from 'drizzle-orm';
 import { randomUUID } from 'crypto';
 
-export const authRouter = Router();
+import type { Router as ExpressRouter } from 'express';
+export const authRouter: ExpressRouter = Router();
 
 const loginSchema = z.object({
   username: z.string().min(1),
