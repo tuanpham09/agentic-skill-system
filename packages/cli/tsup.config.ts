@@ -21,9 +21,11 @@ export default defineConfig({
   format: ['esm'],
   dts: true,
   clean: true,
-  banner: {
-    js: '#!/usr/bin/env node',
-  },
+  platform: 'node',
+  target: 'node20',
+  banner: { js: '#!/usr/bin/env node\n' },
+  external: ['fs', 'path', 'os', 'crypto', 'child_process', 'stream', 'url', 'util'],
+  noExternal: [/@agentic-skill\/.*/],
   async onSuccess() {
     // Copy bundled skills into dist so they're available after npm install
     const skillsSrc = join(__dirname, '..', '..', 'skills');
