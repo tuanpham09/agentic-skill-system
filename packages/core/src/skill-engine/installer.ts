@@ -5,7 +5,8 @@ import {
   readFileSync,
   writeFileSync,
 } from 'fs';
-import { join, homedir } from 'path';
+import { join } from 'path';
+import { homedir } from 'os';
 import type { InstallOptions, InstallResult } from '../types/index.js';
 import { SkillValidator } from './validator.js';
 import { SkillLoader } from './loader.js';

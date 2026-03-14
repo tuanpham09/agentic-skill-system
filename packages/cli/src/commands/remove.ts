@@ -1,5 +1,5 @@
 import { existsSync, rmSync, readFileSync, writeFileSync } from 'fs';
-import { join, homedir } from 'path';
+import { join } from 'path';
 import type { AppContext } from '@agentic-skill/core';
 import { SkillResolver } from '@agentic-skill/core';
 import { logger } from '../utils/logger.js';

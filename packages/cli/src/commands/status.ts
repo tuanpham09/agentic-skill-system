@@ -1,5 +1,6 @@
 import { existsSync, readdirSync } from 'fs';
-import { join, homedir } from 'path';
+import { join } from 'path';
+import { homedir } from 'os';
 import { SessionStateManager, SkillLoader, ConfigLoader, KanbanManager } from '@agentic-skill/core';
 import { detectAdapter } from '@agentic-skill/adapters';
 import type { AppContext } from '@agentic-skill/core';

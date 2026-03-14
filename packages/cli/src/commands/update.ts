@@ -1,5 +1,6 @@
 import { existsSync, readdirSync } from 'fs';
-import { join, homedir } from 'path';
+import { join } from 'path';
+import { homedir } from 'os';
 import { RegistryClient, SkillLoader, SkillCache, SkillInstaller } from '@agentic-skill/core';
 import type { AppContext } from '@agentic-skill/core';
 import { logger } from '../utils/logger.js';

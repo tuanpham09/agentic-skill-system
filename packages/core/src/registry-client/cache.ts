@@ -5,7 +5,8 @@ import {
   writeFileSync,
   readFileSync,
 } from 'fs';
-import { join, homedir } from 'path';
+import { join } from 'path';
+import { homedir } from 'os';
 
 const GLOBAL_SKILLS_DIR = join(homedir(), '.agentic-skills', 'skills');
 const CACHE_INDEX_PATH = join(homedir(), '.agentic-skills', 'cache-index.json');

@@ -1,5 +1,6 @@
 import { existsSync, readdirSync } from 'fs';
-import { join, homedir } from 'path';
+import { join } from 'path';
+import { homedir } from 'os';
 import type { SkillSummary } from '../types/index.js';
 import { SkillLoader } from './loader.js';
 
