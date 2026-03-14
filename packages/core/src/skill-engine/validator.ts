@@ -52,10 +52,23 @@ export class SkillValidator {
 
     // 1. skill.json must exist and be valid
     const metaPath = join(skillDir, 'skill.json');
+    
     if (!existsSync(metaPath)) {
       errors.push('Missing skill.json — every skill must have a skill.json metadata file');
-      // Can't continue without meta
-      return { valid: false, errors };
+      // không return, tiếp tục check SKILL.md
+    } else {
+      // chỉ parse JSON nếu file tồn tại
+      try {
+        const raw = JSON.parse(readFileSync(metaPath, 'utf-8'));
+        const result = skillMetaSchema.safeParse(raw);
+        if (!result.success) {
+          result.error.issues.forEach((i) => {
+            errors.push(`skill.json [${i.path.join('.')}]: ${i.message}`);
+          });
+        }
+      } catch {
+        errors.push('skill.json is not valid JSON');
+      }
     }
 
     try {
