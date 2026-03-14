@@ -35,7 +35,10 @@ jobs:
         run: pnpm test
 
       - name: Validate all bundled skills
-        run: node packages/cli/dist/index.js skill validate-all
+        run: |
+          # Strip shebang line before running with node directly
+          tail -n +2 packages/cli/dist/index.js > /tmp/cli.js
+          node /tmp/cli.js skill validate-all
 
       - name: Check bundle size
         run: |
