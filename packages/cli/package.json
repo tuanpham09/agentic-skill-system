@@ -11,6 +11,7 @@
   "files": ["dist", "skills", "README.md"],
   "scripts": {
     "build": "tsup src/index.ts --format esm --dts --clean",
+    "postbuild": "node -e \"const fs=require('fs');const f='dist/index.js';const content=fs.readFileSync(f,'utf8');if(!content.startsWith('#!/usr/bin/env node')){fs.writeFileSync(f,'#!/usr/bin/env node\\n'+content)}\"",
     "dev": "tsup src/index.ts --format esm --dts --watch",
     "typecheck": "tsc --noEmit",
     "clean": "rm -rf dist"
