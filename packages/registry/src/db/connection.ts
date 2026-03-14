@@ -1,6 +1,7 @@
 import Database from 'better-sqlite3';
 import { drizzle } from 'drizzle-orm/better-sqlite3';
-import { existsSync, mkdirSync, dirname } from 'fs';
+import { existsSync, mkdirSync } from 'fs';
+import { dirname } from 'path';
 import * as schema from './schema.js';
 
 const DB_PATH = process.env['DATABASE_URL']?.replace('file:', '') ?? './registry.db';
