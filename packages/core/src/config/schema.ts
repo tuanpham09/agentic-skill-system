@@ -1,4 +1,5 @@
 import { z } from 'zod';
+import type { DetectedLanguage } from '../types/index.js';
 
 export const agenticConfigSchema = z.object({
   version: z.string().default('1.0.0'),
@@ -14,7 +15,10 @@ export const agenticConfigSchema = z.object({
   project: z.object({
     name: z.string(),
     type: z.enum(['new', 'existing']),
-    language: z.string(),
+    language: z.enum([
+  'typescript', 'javascript', 'python', 'go', 'rust',
+  'java', 'php', 'ruby', 'csharp', 'swift', 'kotlin', 'dart', 'unknown'
+] as const),
     framework: z.string().optional(),
     description: z.string().optional(),
     docsPath: z.string().default('.agentic/docs'),
